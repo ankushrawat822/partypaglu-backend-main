@@ -20,6 +20,13 @@ const getPayment = require("./route/payment.js")
 const verify = require("./route/payment.js")
 const order = require("./route/payment.js")
 
+// importing guestProjile 
+const createGuestProfile = require("./route/guestProfile.js")
+const getGuestProfile = require("./route/guestProfile.js")
+
+// importing party routes
+const partyRoute = require("./route/partyRoute.js")
+const getAllParties = require("./route/partyRoute.js")
 
 app.use(cors())
 app.use(express.json())
@@ -30,6 +37,14 @@ app.use("/api" , getPayment)
 app.use("/api" , verify)
 app.use("/api" , order)
 app.use("/api" , checkUser)
+
+// guestProfile
+app.use('/api/guest-profile', createGuestProfile);
+app.use('/api', getGuestProfile);
+
+// party routes
+app.use("/api" , partyRoute)
+app.use("/api" , getAllParties)
 
 
 
