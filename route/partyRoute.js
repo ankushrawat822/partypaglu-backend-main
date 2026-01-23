@@ -1,8 +1,8 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const { getPartyById , getAllParties } = require('../controller/Party.js');
+import { getPartyById , getAllParties } from '../controller/Party.js';
 
 router.get('/party-details/:id', getPartyById);
 router.get('/party-details', getAllParties);
 
-module.exports = router;
+export default router;

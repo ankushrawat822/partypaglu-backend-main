@@ -1,32 +1,31 @@
-const express = require('express')
+import express from 'express'
 const app = express()
-const cors = require('cors')
-const dotenv = require('dotenv')
+import cors from 'cors'
+import dotenv from 'dotenv'
 dotenv.config()
 
 // importing db 
-const connectDB = require("./config/db.js")
-
+import connectDB from './config/db.js'
 connectDB()
 
 
 
 // importing auth routes
-const authRoute = require("./route/auth-route.js")
-const checkUser = require("./route/auth-route.js")
+import authRoute from "./route/auth-route.js"
+import checkUser from "./route/auth-route.js"
 
 // importing payment routes
-const getPayment = require("./route/payment.js")
-const verify = require("./route/payment.js")
-const order = require("./route/payment.js")
+import getPayment from "./route/payment.js"
+import verify from "./route/payment.js"
+import order from "./route/payment.js"
 
 // importing guestProjile 
-const createGuestProfile = require("./route/guestProfile.js")
-const getGuestProfile = require("./route/guestProfile.js")
+import createGuestProfile from "./route/guestProfile.js"
+import getGuestProfile from "./route/guestProfile.js"
 
 // importing party routes
-const partyRoute = require("./route/partyRoute.js")
-const getAllParties = require("./route/partyRoute.js")
+import partyRoute from "./route/partyRoute.js"
+import getAllParties from "./route/partyRoute.js"
 
 app.use(cors())
 app.use(express.json())
@@ -47,9 +46,7 @@ app.use("/api" , partyRoute)
 app.use("/api" , getAllParties)
 
 
-
-
-module.exports = app
+export default app
 
 
 
