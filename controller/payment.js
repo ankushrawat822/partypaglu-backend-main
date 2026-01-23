@@ -1,12 +1,12 @@
 
-// import Razorpay from 'razorpay'
-const Razorpay = require("razorpay")
+import Razorpay from 'razorpay'
+// const Razorpay = require("razorpay")
 // import 'dotenv/config.js'
 // import crypto from 'crypto'
-const crypto = require('crypto')
+import crypto from 'crypto';
 
 // import payment from '../model/paymentSchema.js'
-const User = require("../model/auth-model.js")
+import User from "../model/auth-model.js";
 
 const razorpayInstance = new Razorpay({ 
     key_id: process.env.RAZORPAY_KEY_ID, 
@@ -14,7 +14,7 @@ const razorpayInstance = new Razorpay({
  })
 
 
-const getPayment = async (req , res)=>{
+export const getPayment = async (req, res) => {
 
     try {
         res.json({msg : "payment details"})
@@ -25,7 +25,7 @@ const getPayment = async (req , res)=>{
 
 
 // order api
-const razorpay_order = async (req , res)=>{
+export const razorpay_order = async (req, res) => {
     const {amount} = req.body
     try {
         const options = {
@@ -54,7 +54,7 @@ const razorpay_order = async (req , res)=>{
 
 
 // verify api
-const razorpay_verify = async (req , res)=>{
+export const razorpay_verify = async (req , res)=>{
     const { email , razorpay_order_id , razorpay_payment_id , razorpay_signature } = req.body
     try {
         const sign = razorpay_order_id + "|" + razorpay_payment_id
@@ -96,9 +96,4 @@ const razorpay_verify = async (req , res)=>{
     } catch (error) {
         console.log(error)
     }
-}
-
- 
-module.exports = {
-     razorpay_order , razorpay_verify , getPayment
 }

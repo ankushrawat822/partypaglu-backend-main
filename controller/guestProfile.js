@@ -1,8 +1,8 @@
 // controllers/guestProfile-controller.js
 
-const GuestProfile = require("../model/guestProfile.js")
+import GuestProfile from "../model/guestProfile.js";
 
-const createGuestProfile = async (req, res) => {
+export const createGuestProfile = async (req, res) => {
   try {
     const filter = { email: req.body.email };
     const update = req.body;
@@ -18,7 +18,7 @@ const createGuestProfile = async (req, res) => {
 
 
 
-const getGuestProfile = async (req, res) => {
+export const getGuestProfile = async (req, res) => {
   try {
     const { email } = req.params;
     const profile = await GuestProfile.findOne({ email });
@@ -30,11 +30,6 @@ const getGuestProfile = async (req, res) => {
     console.error(err);
     res.status(500).json({ error: 'Error fetching profile' });
   }
-};
-
-module.exports = {
-  createGuestProfile,
-  getGuestProfile,
 };
 
 

@@ -1,6 +1,7 @@
-const User = require("../model/auth-model.js")
+import User from "../model/auth-model.js";
+
 // note : first check if the email is already exist if not only then save new user
-exports.createUser = async (req , res) =>{
+export const createUser = async (req , res) =>{
     const {email , userId } = req.body 
     try{
 
@@ -27,7 +28,7 @@ exports.createUser = async (req , res) =>{
 
 
 
-exports.checkUser = async ( req , res) =>{
+export const checkUser = async ( req , res) => {
     const {email} = req.body
 
     try{

@@ -1,8 +1,8 @@
 // routes/guestProfile.js
-const express = require("express")
+import express from "express";
 //import { ReturnDocument } from 'mongodb';
 //import { createGuestProfile } from '../controllers/guestProfile.js';
-const {createGuestProfile , getGuestProfile} = require("../controller/guestProfile.js")
+import { createGuestProfile, getGuestProfile } from "../controller/guestProfile.js";
 
 const router = express.Router();
 
@@ -10,4 +10,4 @@ const router = express.Router();
 router.post('/', createGuestProfile);
 router.get('/guest-profile/:email', getGuestProfile);
 
-module.exports = router
+export default router;
