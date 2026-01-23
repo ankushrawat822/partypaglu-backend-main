@@ -1,7 +1,7 @@
-const Party = require('../model/Party.js');
+import Party from '../model/Party.js';
 
 
-const getAllParties = async (req, res) => {
+export const getAllParties = async (req, res) => {
     try {
       const parties = await Party.find();
       res.status(200).json(parties);
@@ -13,7 +13,7 @@ const getAllParties = async (req, res) => {
 
 
 // Get party by ID
-const getPartyById = async (req, res) => {
+export const getPartyById = async (req, res) => {
   try {
     const party = await Party.findOne({ id: req.params.id });
     if (!party) {
@@ -24,5 +24,3 @@ const getPartyById = async (req, res) => {
     res.status(500).json({ message: 'Server error', error: err.message });
   }
 };
-
-module.exports = { getPartyById , getAllParties };

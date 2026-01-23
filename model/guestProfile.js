@@ -1,6 +1,6 @@
 // models/guestProfile.js
 
-const mongoose = require("mongoose")
+import mongoose from 'mongoose';
 
 const guestProfileSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -11,5 +11,5 @@ const guestProfileSchema = new mongoose.Schema({
   city: String,
   createdAt: { type: Date, default: Date.now }
 });
-module.exports = mongoose.model('GuestProfile', guestProfileSchema);
+export default mongoose.model('GuestProfile', guestProfileSchema);
 

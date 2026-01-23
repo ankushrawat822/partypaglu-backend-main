@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const partySchema = new mongoose.Schema({
   id: String,
@@ -50,10 +50,11 @@ const partySchema = new mongoose.Schema({
     ac: Boolean,
     parking: Boolean,
     music: Boolean,
+    params: Boolean,
   },
   rules: [String],
   howItWorks: [String],
   cancellationPolicy: [String],
 });
 
-module.exports = mongoose.model('Party', partySchema);
+export default mongoose.model('Party', partySchema);
